@@ -6,5 +6,8 @@ router.get("/", async(req, res, next)=>{
 });
 
 
+router.get("/home", async(req, res, next)=>{
+    res.render("index")
+});
 
 module.exports = router

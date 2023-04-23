@@ -1,8 +1,16 @@
 const express = require("express");
+const nunjucks = require('nunjucks');
+const path = require('path');
+const indexRouter = require('./routes/index');
+
 
 const app = express();
 app.set('port', process.env.ports||80);
-const indexRouter = require('./routes/index');
+app.set('view engine','html');
+nunjucks.configure('views',{
+    express:app,
+    watch:true
+})
 
 app.use('/',indexRouter);
 
